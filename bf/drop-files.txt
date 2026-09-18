@@ -1,0 +1,2 @@
+scripts/hooks/insaits-security-monitor.py
+scripts/hooks/insaits-security-wrapper.js
