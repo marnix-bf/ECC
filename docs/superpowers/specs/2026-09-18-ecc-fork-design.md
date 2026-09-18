@@ -46,13 +46,17 @@ GitHub, zodat een wijziging meteen zichtbaar is zonder push.
 
 ## 2. Snoeien als script, niet als losse verwijderingen
 
-Met de hand 128 skills en 31 agents verwijderen maakt elke samenvoeging met de
-bovenstroom tot een conflictenveld. Daarom wordt de snoei uitgedrukt als data
+Met de hand 116 skills, 29 agents en 18 commands verwijderen maakt elke
+samenvoeging met de bovenstroom tot een conflictenveld. Daarom wordt de snoei uitgedrukt als data
 plus een script:
 
-- `bf/keep.txt` — de houdlijst: elke skill en agent die blijft, één per regel.
-- `bf/trim.sh` — verwijdert alles onder `skills/` en `agents/` dat niet in de
-  houdlijst staat, plus een korte lijst losse bestanden (zie §3).
+- `bf/keep-skills.txt`, `bf/keep-agents.txt` en `bf/keep-commands.txt` — de
+  houdlijsten: elke naam die blijft, één per regel.
+- `bf/drop-files.txt` — losse paden die altijd weg moeten.
+- `bf/trim.sh` — verwijdert alles onder `skills/`, `agents/` en `commands/` dat
+  niet in de bijbehorende houdlijst staat, plus elk pad uit `drop-files.txt`.
+- `bf/check-refs.sh` — meldt of een overgebleven bestand nog naar iets verwijst
+  dat niet meer bestaat.
 
 Bij een update uit de bovenstroom:
 
@@ -61,14 +65,15 @@ git checkout bf && git merge upstream/main && ./bf/trim.sh && git commit -am "tr
 ```
 
 Conflicten ontstaan dan alleen nog op bestanden die zelf zijn aangepast — de
-hookconfiguratie en `marketplace.json` — en niet op de 128 verwijderde skills.
+manifesten, `marketplace.json`, de werkstroom en een handvol skills — en niet op
+de 116 verwijderde skills.
 `trim.sh` drukt af welke nieuwe namen het tegenkwam die niet in de houdlijst
 staan, zodat een nieuwe upstream-skill een bewuste keuze wordt in plaats van een
 stille verdwijning.
 
 ### Wat blijft
 
-Ongeveer 164 van de 292 skills en 37 van de 68 agents.
+176 van de 292 skills, 39 van de 68 agents en 76 van de 94 commands.
 
 **Kern-engineering.** De zes `orch-*` skills, `tdd-workflow`,
 `verification-loop`, `delivery-gate`, `quality-gate`, `production-audit`,
@@ -169,6 +174,20 @@ vier `ito-*` skills, logistiek en productie (`carrier-*`, `customs-*`,
 `flox-environments` vallen af: beide veronderstellen een terminalomgeving die
 hier niet gebruikt wordt.
 
+**Commands.** Achttien commands horen bij verdwenen talen en vervallen:
+`cpp-build`, `cpp-review`, `cpp-test`, `fastapi-review`, `flutter-build`,
+`flutter-review`, `flutter-test`, `go-build`, `go-review`, `go-test`,
+`gradle-build`, `kotlin-build`, `kotlin-review`, `kotlin-test`, `python-review`,
+`rust-build`, `rust-review` en `rust-test`. De overige 76 blijven.
+
+**Andere harnesses en vertalingen.** Tijdens de uitvoering bleek de ruis groter
+dan de skills alleen. Weg gaan daarom ook de configuratiemappen van andere
+harnesses (`.codex`, `.codex-plugin`, `.cursor`, `.gemini`, `.kiro`,
+`.opencode`, `.qwen`, `.trae`, `.zed`) met hun gidsen in `docs/`, de zeven
+vertaalde documentatiemappen met `README.zh-CN.md`, de regelpakketten van
+verdwenen talen onder `rules/`, en `legacy-command-shims`, `docker` en
+`integrations`. Dat scheelt ruim 280.000 regels.
+
 **Agents.** De reviewers en build-resolvers van de weggevallen talen, de
 `healthcare-reviewer`, `homelab-architect`, de drie netwerkagents, de
 `mle-reviewer` en de `rag-pipeline-reviewer`.
@@ -176,7 +195,11 @@ hier niet gebruikt wordt.
 ## 3. Hooks
 
 De hooklaag blijft grotendeels aan. ECC regelt dit met een profiel en een lijst
-uitgeschakelde identiteiten, dus dit is configuratie, geen snoeiwerk:
+uitgeschakelde identiteiten, dus dit is configuratie, geen snoeiwerk. Die lijst
+wordt alleen uit de omgeving gelezen — zie `getDisabledHookIds` in
+`scripts/lib/hook-flags.js` — en niet uit `ecc/setup.json`, dat enkel `enabled`
+en `profile` kent. De instelling staat daarom in `~/.claude/settings.json` en
+niet in de fork:
 
 ```
 ECC_HOOK_PROFILE=standard
