@@ -1,8 +1,8 @@
 {
   "name": "ecc",
   "owner": {
-    "name": "Affaan Mustafa",
-    "email": "me@affaanmustafa.com"
+    "name": "Marnix",
+    "email": "marnix@blueflamingos.nl"
   },
   "metadata": {
     "description": "Harness-native ECC skills, hooks, rules, MCP conventions, and operator workflows"
@@ -11,14 +11,14 @@
     {
       "name": "ecc",
       "source": "./",
-      "description": "Harness-native ECC operator layer - 68 agents, 292 skills, 94 legacy command shims, reusable hooks, rules, selective install profiles, and production-ready workflows for Claude Code, Codex, OpenCode, Cursor, and related agent harnesses",
+      "description": "Gesnoeide ECC-fork — 39 agents, 176 skills, 76 commands, afgestemd op TypeScript, React, Next.js, Strapi en Node",
       "version": "2.2.1",
       "author": {
-        "name": "Affaan Mustafa",
-        "email": "me@affaanmustafa.com"
+        "name": "Marnix",
+        "email": "marnix@blueflamingos.nl"
       },
       "homepage": "https://ecc.tools",
-      "repository": "https://github.com/affaan-m/ECC",
+      "repository": "https://github.com/marnix-bf/ECC",
       "license": "MIT",
       "keywords": [
         "agents",
