@@ -139,8 +139,8 @@ review until done` → Best fit: `loop-*` (autonomous) wrapping `gan-*` or
 pass review N consecutive times (add a max-iteration backstop to bound burn).
 
 **Match:** `/ecc-recipes fix a bug in my Go service` → Best fit: `orch-fix-defect`
-(reproduce, fix, review, commit). Alt: `go-test` then `go-build` then
-`go-review`. STOP: regression test green and review pass.
+(reproduce, fix, review, commit). Alt:  then  then
+. STOP: regression test green and review pass.
 
 ## Non-Goals
 

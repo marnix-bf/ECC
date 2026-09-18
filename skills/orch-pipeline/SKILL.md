@@ -91,7 +91,7 @@ Everything between the gates flows without stopping.
 | Intake / understand | `code-explorer` | trace existing paths before a tweak, fix, or refactor |
 | Plan | `planner` | `architect`, `code-architect` for structural calls |
 | Implement | `tdd-guide` (or `tdd-workflow` skill) | `build-error-resolver` / `/build-fix` on build breaks |
-| Review | `code-reviewer` / `/code-review` | language reviewer (`python-reviewer`, `typescript-reviewer`, …) |
+| Review | `code-reviewer` / `/code-review` | language reviewer (`typescript-reviewer`, `react-reviewer`, …) |
 | Security | `security-reviewer` | — |
 | MVP inner loop | `/gan-build "<brief>" --skip-planner` | drives `gan-generator` → `gan-evaluator`; tune `--max-iterations` / `--pass-threshold` |
 

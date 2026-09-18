@@ -203,22 +203,6 @@
       ]
     },
     {
-      "id": "capability:ito-compute",
-      "family": "capability",
-      "description": "Authenticated It\u00f4 GPU inventory, RFQ, status, device revocation, and explicitly gated node-qualification workflows through the separately installed canonical CLI.",
-      "modules": [
-        "ito-compute"
-      ]
-    },
-    {
-      "id": "capability:nasiko-control-plane",
-      "family": "capability",
-      "description": "Experimental Nasiko CLI lifecycle bridge guidance for pinned installation, read-only status, qualified uninstall, and opt-in telemetry boundaries.",
-      "modules": [
-        "nasiko-control-plane"
-      ]
-    },
-    {
       "id": "capability:social",
       "family": "capability",
       "description": "Social publishing and distribution skills.",
@@ -439,22 +423,6 @@
       ]
     },
     {
-      "id": "agent:harmonyos-app-resolver",
-      "family": "agent",
-      "description": "HarmonyOS application development expert agent.",
-      "modules": [
-        "agents-core"
-      ]
-    },
-    {
-      "id": "agent:fsharp-reviewer",
-      "family": "agent",
-      "description": "F# code review agent for functional idioms, type safety, and .NET testing.",
-      "modules": [
-        "agents-core"
-      ]
-    },
-    {
       "id": "agent:refactor-cleaner",
       "family": "agent",
       "description": "Dead code cleanup and refactoring agent.",
@@ -466,14 +434,6 @@
       "id": "agent:doc-updater",
       "family": "agent",
       "description": "Documentation update agent.",
-      "modules": [
-        "agents-core"
-      ]
-    },
-    {
-      "id": "agent:mle-reviewer",
-      "family": "agent",
-      "description": "Production machine-learning engineering reviewer for ML pipelines, evals, serving, monitoring, and rollback.",
       "modules": [
         "agents-core"
       ]
@@ -522,14 +482,6 @@
       "id": "skill:verification-loop",
       "family": "skill",
       "description": "Verification loop for code quality assurance.",
-      "modules": [
-        "workflow-quality"
-      ]
-    },
-    {
-      "id": "skill:windows-desktop-e2e",
-      "family": "skill",
-      "description": "E2E testing for Windows native desktop apps with pywinauto and Windows UI Automation.",
       "modules": [
         "workflow-quality"
       ]
@@ -588,14 +540,6 @@
       "description": "Deep research and investigation workflows.",
       "modules": [
         "research-apis"
-      ]
-    },
-    {
-      "id": "skill:mle-workflow",
-      "family": "skill",
-      "description": "Production machine-learning engineering workflow for data contracts, reproducible training, evaluation, deployment, monitoring, and rollback.",
-      "modules": [
-        "machine-learning"
       ]
     },
     {

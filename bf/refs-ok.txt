@@ -1,0 +1,13 @@
+# Namen die alleen nog in lopende tekst voorkomen, als voorbeeld of in een
+# opsomming. Ze sturen niets aan, dus ze mogen blijven staan.
+api-connector-builder
+canary-watch
+connections-optimizer
+counterparty-channel-discipline
+customer-billing-ops
+django-patterns
+hermes-imports
+mle-reviewer
+nanoclaw-repl
+python-patterns
+swiftui-patterns

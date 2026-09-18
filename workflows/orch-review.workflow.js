@@ -35,22 +35,9 @@ export const meta = {
 const LANGUAGE_REVIEWER = {
   typescript: 'ecc:typescript-reviewer',
   javascript: 'ecc:typescript-reviewer',
-  python: 'ecc:python-reviewer',
-  go: 'ecc:go-reviewer',
-  rust: 'ecc:rust-reviewer',
-  java: 'ecc:java-reviewer',
-  kotlin: 'ecc:kotlin-reviewer',
-  swift: 'ecc:swift-reviewer',
   php: 'ecc:php-reviewer',
-  csharp: 'ecc:csharp-reviewer',
-  fsharp: 'ecc:fsharp-reviewer',
   react: 'ecc:react-reviewer',
-  vue: 'ecc:vue-reviewer',
-  flutter: 'ecc:flutter-reviewer',
-  dart: 'ecc:flutter-reviewer',
-  django: 'ecc:django-reviewer',
-  fastapi: 'ecc:fastapi-reviewer',
-  cpp: 'ecc:cpp-reviewer'
+  vue: 'ecc:vue-reviewer'
 };
 
 // orch-pipeline security trigger: auth/authz, user input, db queries, fs paths,

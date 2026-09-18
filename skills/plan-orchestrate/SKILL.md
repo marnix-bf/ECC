@@ -74,10 +74,10 @@ General:
 - `chief-of-staff` — multi-channel triage (rarely a fit for plan steps)
 
 Build error resolvers:
-- `build-error-resolver` (generic) / `cpp-build-resolver` / `go-build-resolver` / `java-build-resolver` / `kotlin-build-resolver` / `rust-build-resolver` / `pytorch-build-resolver`
+- `build-error-resolver` (generic) / `react-build-resolver`
 
 Code reviewers:
-- `python-reviewer` / `typescript-reviewer` / `go-reviewer` / `rust-reviewer` / `cpp-reviewer` / `java-reviewer` / `kotlin-reviewer` / `flutter-reviewer`
+- `typescript-reviewer` / `react-reviewer` / `vue-reviewer` / `php-reviewer` / `database-reviewer`
 
 A misspelled agent name fails `/orchestrate`. Cross-check against this list before emitting.
 
@@ -98,7 +98,7 @@ A misspelled agent name fails `/orchestrate`. Cross-check against this list befo
    - **Polyglot tie-break**: if more than one marker matches, pick the language whose source files outnumber the others (count via `git ls-files`, excluding `vendor/`, `node_modules/`, `dist/`, `build/`, `.venv/`, generated files, and obvious test fixtures). On a tie or when no language exceeds 60% of source files, set `lang=unknown`.
    - No marker matched → set `lang=unknown`.
    - `lang=unknown` is a sentinel — it is **not** an agent name. Phase 2 rules 4 and 5 turn it into `code-reviewer` / `build-error-resolver` at chain composition time.
-4. Detect a **PyTorch sub-profile**: when `lang=python` and any of `pyproject.toml` / `requirements.txt` / `uv.lock` declares a dependency on `torch`, set `pytorch=true`. This only affects `build` chain selection (Phase 2 rule below); the reviewer remains `python-reviewer`.
+4. Detect a **PyTorch sub-profile**: when `lang=python` and any of `pyproject.toml` / `requirements.txt` / `uv.lock` declares a dependency on `torch`, set `pytorch=true`. This only affects `build` chain selection (Phase 2 rule below); the reviewer remains .
 5. **Normalize any agent names declared in the plan**: if the plan text references agents by their plugin-prefixed form (e.g. `ecc:tdd-guide`), strip the prefix to get the bare catalogue name before validating or composing chains. Re-prefixing happens only at output time per `ECC_MODE` (Phase 4). Never let a pre-prefixed name flow into chain composition — it would double-prefix in plugin mode.
 
 ### Phase 1 — Decompose steps
@@ -140,7 +140,7 @@ Chain composition rules:
 3. `impl` + `db` → `tdd-guide,database-reviewer,<lang>-reviewer`.
 4. **Deduplicate** the resulting chain (preserve first occurrence). E.g. `review` + `lang=unknown` would yield `code-reviewer,code-reviewer` after rule 5; deduplication collapses it to `code-reviewer`.
 5. `<lang>-reviewer` resolves to `code-reviewer` when `lang=unknown`.
-6. `<lang>-build-resolver` resolves to `build-error-resolver` when `lang=unknown`. **Special case**: if Phase 0 set `pytorch=true`, use `pytorch-build-resolver` for `build` chains regardless of `<lang>`. There is no `python-build-resolver`; `--lang=python` without `pytorch=true` resolves to `build-error-resolver`.
+6. `<lang>-build-resolver` resolves to `build-error-resolver` when `lang=unknown`. **Special case**: if Phase 0 set `pytorch=true`, use  for `build` chains regardless of `<lang>`. There is no `python-build-resolver`; `--lang=python` without `pytorch=true` resolves to `build-error-resolver`.
 7. **Zero-tag steps**: if no trigger word matches, set chain to `code-reviewer` and write `no tag matched; default review-only chain` under "Chain rationale".
 8. Chain length ≤ 4 after deduplication. If exceeded, drop weakest tag (`lookup` and `docs` first).
 9. Do not pair `planner` and `architect` in an `impl` chain (token waste). Pair them only on `design` steps.
@@ -181,7 +181,6 @@ Output structure:
 
 | # | Title | Tags | Chain |
 |---|---|---|---|
-| 1 | ... | impl, db | `{AGENT(tdd-guide)},{AGENT(database-reviewer)},{AGENT(python-reviewer)}` |
 | ... | | | |
 
 ---
@@ -193,7 +192,7 @@ Output structure:
 **Chain rationale**: <why this chain; which agent closes the loop>
 
 ```bash
-{ORCH_CMD} custom "{AGENT(tdd-guide)},{AGENT(database-reviewer)},{AGENT(python-reviewer)}" "[Plan: docs/foo.md#step-1] <compressed task description>; Acceptance: <1–3 items>; Out of scope: <…>"
+{ORCH_CMD} custom "{AGENT(tdd-guide)}, {AGENT(database-reviewer)}, {AGENT()}" "[Plan: docs / foo.md#step-1] <compressed task description>; Acceptance: <1–3 items>; Out of scope: <…>"
 ```
 ````
 
@@ -239,10 +238,10 @@ Excerpt of expected output:
 
 **Intent**: Introduce an `EncryptedString` SQLAlchemy type and AES-GCM encrypt `birth_datetime` / `location` before persistence; load the key from an environment variable.
 **Tags**: impl, security, db
-**Chain rationale**: Security-sensitive write path, so `security-reviewer` closes the chain; `database-reviewer` validates the alembic migration; `python-reviewer` covers typing and PEP 8.
+**Chain rationale**: Security-sensitive write path, so `security-reviewer` closes the chain; `database-reviewer` validates the alembic migration;  covers typing and PEP 8.
 
 ```bash
-/ecc:orchestrate custom "ecc:tdd-guide,ecc:database-reviewer,ecc:python-reviewer,ecc:security-reviewer" "[Plan: docs/plan/example-feature.md#step-2] Implement EncryptedString SQLAlchemy type and migrate UserProfile.birth_datetime/location columns; key from ENV APP_DB_KEY; Acceptance: encrypt/decrypt roundtrip tests pass; alembic upgrade/downgrade clean on empty DB; no plaintext in DB after migrate; Out of scope: cross-tenant profile sharing logic"
+ / ecc:orchestrate custom "ecc:tdd-guide, ecc:database-reviewer, ecc:, ecc:security-reviewer" "[Plan: docs / plan / example-feature.md#step-2] Implement EncryptedString SQLAlchemy type and migrate UserProfile.birth_datetime / location columns; key from ENV APP_DB_KEY; Acceptance: encrypt / decrypt roundtrip tests pass; alembic upgrade / downgrade clean on empty DB; no plaintext in DB after migrate; Out of scope: cross-tenant profile sharing logic"
 ```
 ````
 
@@ -251,7 +250,7 @@ Excerpt of expected output:
 If `ECC_MODE=legacy` were detected, the same step would be emitted as a single uniform command (no plugin-prefixed forms anywhere in the output):
 
 ```bash
-/orchestrate custom "tdd-guide,database-reviewer,python-reviewer,security-reviewer" "[Plan: docs/plan/example-feature.md#step-2] ..."
+ / orchestrate custom "tdd-guide, database-reviewer, security-reviewer" "[Plan: docs / plan / example-feature.md#step-2] ..."
 ```
 
 The two examples above illustrate **the two possible outputs** for two different environments. A single skill invocation produces only one of them, end to end.

@@ -154,66 +154,30 @@
       "kind": "skills",
       "description": "Core framework, language, and application-engineering skills.",
       "paths": [
-        "skills/android-clean-architecture",
         "skills/angular-developer",
         "skills/api-design",
         "skills/backend-patterns",
         "skills/coding-standards",
-        "skills/compose-multiplatform-patterns",
         "skills/contract-first",
-        "skills/csharp-testing",
-        "skills/fsharp-testing",
-        "skills/cpp-coding-standards",
-        "skills/cpp-testing",
-        "skills/dart-flutter-patterns",
-        "skills/django-patterns",
-        "skills/django-tdd",
-        "skills/django-verification",
-        "skills/dotnet-patterns",
-        "skills/fastapi-patterns",
         "skills/frontend-design-direction",
         "skills/frontend-patterns",
         "skills/frontend-slides",
         "skills/make-interfaces-feel-better",
-        "skills/golang-patterns",
-        "skills/golang-testing",
-        "skills/java-coding-standards",
-        "skills/kotlin-coroutines-flows",
-        "skills/kotlin-exposed-patterns",
-        "skills/kotlin-ktor-patterns",
-        "skills/kotlin-patterns",
-        "skills/kotlin-testing",
         "skills/laravel-plugin-discovery",
         "skills/laravel-patterns",
         "skills/laravel-tdd",
         "skills/laravel-verification",
         "skills/mcp-server-patterns",
         "skills/nestjs-patterns",
-        "skills/perl-patterns",
-        "skills/perl-testing",
-        "skills/python-patterns",
-        "skills/python-testing",
-        "skills/quarkus-patterns",
-        "skills/quarkus-tdd",
-        "skills/quarkus-verification",
-        "skills/rails-patterns",
         "skills/react-patterns",
         "skills/react-performance",
         "skills/react-testing",
-        "skills/rust-patterns",
-        "skills/rust-testing",
-        "skills/springboot-patterns",
-        "skills/springboot-tdd",
-        "skills/springboot-verification",
         "skills/ui-to-vue",
         "skills/vue-patterns",
         "skills/accessibility",
         "skills/bun-runtime",
         "skills/design-system",
-        "skills/django-celery",
-        "skills/flutter-dart-code-review",
         "skills/frontend-a11y",
-        "skills/generating-python-installer",
         "skills/hexagonal-architecture",
         "skills/motion-advanced",
         "skills/motion-foundations",
@@ -221,7 +185,6 @@
         "skills/nextjs-turbopack",
         "skills/nuxt4-patterns",
         "skills/react-native-patterns",
-        "skills/tinystruct-patterns",
         "skills/vite-patterns"
       ],
       "targets": [
@@ -253,7 +216,6 @@
       "paths": [
         "skills/clickhouse-io",
         "skills/database-migrations",
-        "skills/jpa-patterns",
         "skills/mysql-patterns",
         "skills/postgres-patterns",
         "skills/prisma-patterns",
@@ -338,7 +300,6 @@
         "skills/strategic-compact",
         "skills/tdd-workflow",
         "skills/verification-loop",
-        "skills/windows-desktop-e2e",
         "skills/agent-self-evaluation",
         "skills/architecture-decision-records",
         "skills/browser-qa",
@@ -391,8 +352,6 @@
       "description": "Parallel execution, benchmarking, data-throughput, latency, and recursive decision-ledger skills for faster evidence-backed work.",
       "paths": [
         "skills/benchmark-optimization-loop",
-        "skills/data-throughput-accelerator",
-        "skills/latency-critical-systems",
         "skills/parallel-execution-optimizer",
         "skills/recursive-decision-ledger",
         "skills/agent-eval",
@@ -424,25 +383,11 @@
       "kind": "skills",
       "description": "Security review and security-focused framework guidance.",
       "paths": [
-        "skills/defi-amm-security",
-        "skills/django-security",
-        "skills/healthcare-phi-compliance",
-        "skills/hipaa-compliance",
         "skills/laravel-security",
-        "skills/llm-trading-agent-security",
-        "skills/nodejs-keccak256",
-        "skills/perl-security",
-        "skills/quarkus-security",
         "skills/security-review",
-        "skills/security-scan",
         "skills/security-bounty-hunter",
-        "skills/springboot-security",
-        "skills/evm-token-decimals",
         "the-security-guide.md",
         "skills/gateguard",
-        "skills/healthcare-cdss-patterns",
-        "skills/healthcare-emr-patterns",
-        "skills/healthcare-eval-harness",
         "skills/safety-guard"
       ],
       "targets": [
@@ -472,11 +417,6 @@
         "skills/deep-research",
         "skills/exa-search",
         "skills/research-ops",
-        "skills/scientific-db-pubmed-database",
-        "skills/scientific-db-uspto-database",
-        "skills/scientific-pkg-gget",
-        "skills/scientific-thinking-literature-review",
-        "skills/scientific-thinking-scholar-evaluation",
         "skills/documentation-lookup"
       ],
       "targets": [
@@ -542,15 +482,10 @@
       "kind": "skills",
       "description": "Connected-app operator workflows for setup audits, billing operations, program tracking, Google Workspace, and network optimization.",
       "paths": [
-        "skills/automation-audit-ops",
-        "skills/api-connector-builder",
-        "skills/connections-optimizer",
         "skills/cost-tracking",
-        "skills/customer-billing-ops",
         "skills/dashboard-builder",
         "skills/ecc-tools-cost-audit",
         "skills/email-ops",
-        "skills/finance-billing-ops",
         "skills/github-ops",
         "skills/google-workspace-ops",
         "skills/jira-integration",
@@ -585,11 +520,7 @@
       "id": "prediction-market-skills",
       "kind": "skills",
       "description": "Public, non-advisory prediction-market workflows and the consolidated read-only Ito baskets data skill with gated Ito API access.",
-      "paths": [
-        "skills/ito-baskets",
-        "skills/prediction-market-oracle-research",
-        "skills/prediction-market-risk-review"
-      ],
+      "paths": [],
       "targets": [
         "claude",
         "claude-project",
@@ -616,10 +547,7 @@
       "kind": "skills",
       "description": "Generic operator desk patterns: never-silent approval loop, counterparty channel discipline, master agreement generation with a rolling schedule, and deterministic e-signature field placement.",
       "paths": [
-        "skills/operator-approval-loop",
-        "skills/counterparty-channel-discipline",
-        "skills/master-agreement-generator",
-        "skills/esign-field-placement"
+        "skills/operator-approval-loop"
       ],
       "targets": [
         "claude",
@@ -637,69 +565,6 @@
       "defaultInstall": false,
       "cost": "light",
       "stability": "beta"
-    },
-    {
-      "id": "ito-compute",
-      "kind": "skills",
-      "description": "Authenticated It\u00f4 GPU inventory, RFQ, status, device revocation, and explicitly gated node-qualification workflows through the separately installed canonical CLI.",
-      "paths": [
-        "skills/ito-compute",
-        "skills/ito-inference",
-        "skills/ito-training"
-      ],
-      "targets": [
-        "claude",
-        "claude-project",
-        "cursor",
-        "antigravity",
-        "codex",
-        "gemini",
-        "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed",
-        "hermes",
-        "openclaw",
-        "kimi",
-        "adal"
-      ],
-      "dependencies": [
-        "platform-configs"
-      ],
-      "defaultInstall": false,
-      "cost": "light",
-      "stability": "beta"
-    },
-    {
-      "id": "nasiko-control-plane",
-      "kind": "skills",
-      "description": "Experimental Nasiko CLI lifecycle bridge guidance for pinned installation, read-only status, qualified uninstall, and opt-in telemetry boundaries.",
-      "paths": [
-        "skills/nasiko-control-plane"
-      ],
-      "targets": [
-        "claude",
-        "claude-project",
-        "cursor",
-        "antigravity",
-        "codex",
-        "gemini",
-        "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed",
-        "hermes",
-        "openclaw",
-        "kimi"
-      ],
-      "dependencies": [
-        "platform-configs"
-      ],
-      "defaultInstall": false,
-      "cost": "light",
-      "stability": "experimental"
     },
     {
       "id": "social-distribution",
@@ -734,7 +599,6 @@
       "kind": "skills",
       "description": "Media generation, technical explainers, and AI-assisted editing skills.",
       "paths": [
-        "skills/blender-motion-state-inspection",
         "skills/fal-ai-media",
         "skills/manim-video",
         "skills/remotion-video-creation",
@@ -773,8 +637,7 @@
         "scripts/lib/tmux-worktree-orchestrator.js",
         "scripts/orchestrate-codex-worker.sh",
         "scripts/orchestrate-worktrees.js",
-        "scripts/orchestration-status.js",
-        "skills/dmux-workflows"
+        "scripts/orchestration-status.js"
       ],
       "targets": [
         "claude",
@@ -795,12 +658,7 @@
       "kind": "skills",
       "description": "Swift, SwiftUI, and Apple platform skills including concurrency, persistence, and design patterns.",
       "paths": [
-        "skills/foundation-models-on-device",
         "skills/liquid-glass-design",
-        "skills/swift-actor-persistence",
-        "skills/swift-concurrency-6-2",
-        "skills/swift-protocol-di-testing",
-        "skills/swiftui-patterns",
         "skills/ios-icon-gen"
       ],
       "targets": [
@@ -836,13 +694,10 @@
         "skills/autonomous-loops",
         "skills/blueprint",
         "skills/claude-devfleet",
-        "skills/content-hash-cache-pattern",
         "skills/continuous-agent-loop",
         "skills/cost-aware-llm-pipeline",
         "skills/data-scraper-agent",
         "skills/dynamic-workflow-mode",
-        "skills/enterprise-agent-ops",
-        "skills/nanoclaw-repl",
         "skills/prompt-optimizer",
         "skills/ralphinho-rfc-pipeline",
         "skills/regex-vs-llm-structured-text",
@@ -850,11 +705,8 @@
         "skills/team-agent-orchestration",
         "skills/token-budget-advisor",
         "skills/team-builder",
-        "skills/agent-payment-x402",
         "skills/autonomous-agent-harness",
         "skills/gan-style-harness",
-        "skills/hermes-imports",
-        "skills/openclaw-persona-forge",
         "skills/opensource-pipeline",
         "skills/orch-add-feature",
         "skills/orch-build-mvp",
@@ -888,23 +740,9 @@
       "kind": "skills",
       "description": "Deployment workflows, Docker patterns, and infrastructure skills.",
       "paths": [
-        "skills/cisco-ios-patterns",
         "skills/deployment-patterns",
         "skills/docker-patterns",
-        "skills/terminal-opener",
-        "skills/homelab-network-readiness",
-        "skills/homelab-network-setup",
-        "skills/netmiko-ssh-automation",
-        "skills/network-bgp-diagnostics",
-        "skills/network-config-validation",
-        "skills/network-interface-health",
-        "skills/canary-watch",
-        "skills/flox-environments",
-        "skills/homelab-pihole-dns",
-        "skills/homelab-vlan-segmentation",
-        "skills/homelab-wireguard-vpn",
-        "skills/kubernetes-patterns",
-        "skills/uncloud"
+        "skills/terminal-opener"
       ],
       "targets": [
         "claude",
@@ -929,12 +767,7 @@
       "id": "machine-learning",
       "kind": "skills",
       "description": "Production machine-learning engineering workflows for data contracts, reproducible training, evaluation, deployment, monitoring, and rollback.",
-      "paths": [
-        "skills/mle-workflow",
-        "skills/ml-adoption-playbook",
-        "skills/pytorch-patterns",
-        "skills/recsys-pipeline-architect"
-      ],
+      "paths": [],
       "targets": [
         "claude",
         "claude-project",
@@ -962,16 +795,7 @@
       "id": "supply-chain-domain",
       "kind": "skills",
       "description": "Supply chain, logistics, procurement, and manufacturing domain skills.",
-      "paths": [
-        "skills/carrier-relationship-management",
-        "skills/customs-trade-compliance",
-        "skills/energy-procurement",
-        "skills/inventory-demand-planning",
-        "skills/logistics-exception-management",
-        "skills/production-scheduling",
-        "skills/quality-nonconformance",
-        "skills/returns-reverse-logistics"
-      ],
+      "paths": [],
       "targets": [
         "claude",
         "claude-project",
@@ -995,10 +819,7 @@
       "id": "document-processing",
       "kind": "skills",
       "description": "Document processing, conversion, and translation skills.",
-      "paths": [
-        "skills/nutrient-document-processing",
-        "skills/visa-doc-translate"
-      ],
+      "paths": [],
       "targets": [
         "claude",
         "claude-project",

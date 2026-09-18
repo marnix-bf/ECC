@@ -132,16 +132,8 @@ Map intent + scope + tech stack (from Phase 0) to specific ECC components.
 
 | Tech Stack | Skills to Add | Agent |
 |------------|--------------|-------|
-| Python / Django | django-patterns, django-tdd, django-security, django-verification, python-patterns, python-testing | python-reviewer |
-| Go | golang-patterns, golang-testing | go-reviewer, go-build-resolver |
-| Spring Boot / Java | springboot-patterns, springboot-tdd, springboot-security, springboot-verification, java-coding-standards, jpa-patterns | java-reviewer |
-| Quarkus / Java | quarkus-patterns, quarkus-tdd, quarkus-security, quarkus-verification, java-coding-standards, jpa-patterns | java-reviewer |
-| Kotlin / Android | kotlin-coroutines-flows, compose-multiplatform-patterns, android-clean-architecture | kotlin-reviewer |
 | TypeScript / React | frontend-patterns, backend-patterns, coding-standards | code-reviewer |
-| Swift / iOS | swiftui-patterns, swift-concurrency-6-2, swift-actor-persistence, swift-protocol-di-testing | code-reviewer |
 | PostgreSQL | postgres-patterns, database-migrations | database-reviewer |
-| Perl | perl-patterns, perl-testing, perl-security | code-reviewer |
-| C++ | cpp-coding-standards, cpp-testing | code-reviewer |
 | Other / Unlisted | coding-standards (universal) | code-reviewer |
 
 ### Phase 4: Missing Context Detection
@@ -343,7 +335,7 @@ Workflow:
 1. /plan the endpoint structure, middleware chain, and validation logic
 2. /tdd — write table-driven tests for success, validation failure, auth failure, not-found
 3. Implement following existing handler patterns
-4. /go-review
+4.
 5. /verify — run full test suite, confirm no regressions
 
 Do not:

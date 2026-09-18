@@ -173,3 +173,4 @@ unified-notifications-ops
 project-flow-ops
 jira-integration
 mailtrap-email-integration
+security-scan
